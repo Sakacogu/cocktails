@@ -62,10 +62,10 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="w-max mx-auto p-4 text-center">
-      <h1 className="text-3xl font-bold pb-12">Cocktail Recipes</h1>
+    <div className="w-full mx-auto text-center bg-red-900">
+      <h1 className="text-3xl font-bold pb-18 pt-10">Cocktail Recipes</h1>
       {!selectedDrink ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center">
+        <div className="grid grid-cols-2 pr-60 pl-60 sm:grid-cols-3 md:grid-cols-4 gap-10 justify-items-center">
           {drinks.map(drink => (
             <div
               key={drink.idDrink}
