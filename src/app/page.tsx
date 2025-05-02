@@ -62,7 +62,8 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 text-center">
+    <div className="w-max mx-auto p-4 text-center">
+      <h1 className="text-3xl font-bold pb-12">Cocktail Recipes</h1>
       {!selectedDrink ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center">
           {drinks.map(drink => (
@@ -84,29 +85,29 @@ const App: React.FC = () => {
         <div className="max-w-xl mx-auto text-left">
           <button
             onClick={handleBack}
-            className="block mx-auto mb-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            className="mx-auto mb-4 px-4 py-2  bg-gray-200 rounded hover:bg-gray-300 text-black"
           >
             ← Back
           </button>
-          <h2 className="text-2xl font-bold mb-2">{selectedDrink.strDrink}</h2>
+          <h2 className="text-2xl font-bold mb-2 flex flex-row justify-center">{selectedDrink.strDrink}</h2>
           <img
             src={selectedDrink.strDrinkThumb}
             alt={selectedDrink.strDrink}
-            className="w-48 h-auto mx-auto mb-4 rounded-lg"
+            className="w-48 h-auto mx-auto mb-4 rounded-lg flex flex-row justify-center"
           />
-          <p><strong>Category:</strong> {selectedDrink.strCategory}</p>
-          <p><strong>Alcoholic:</strong> {selectedDrink.strAlcoholic}</p>
-          <p><strong>Glass:</strong> {selectedDrink.strGlass}</p>
-          <h3 className="mt-4 text-xl font-semibold">Instructions</h3>
-          <p>{selectedDrink.strInstructions}</p>
-          <h3 className="mt-4 text-xl font-semibold">Ingredients</h3>
-          <ul className="list-disc list-inside mt-2">
+          <p className="w-48 h-auto mx-auto mb-4 rounded-lg flex flex-row justify-center"><strong>Category: </strong> {selectedDrink.strCategory}</p>
+          <p className="w-48 h-auto mx-auto mb-4 rounded-lg flex flex-row justify-center"><strong>Alcoholic: </strong> {selectedDrink.strAlcoholic}</p>
+          <p className="w-48 h-auto mx-auto mb-4 rounded-lg flex flex-row justify-center"><strong>Glass: </strong> {selectedDrink.strGlass}</p>
+          <h3 className="mt-4 text-xl font-semibold flex flex-row justify-center">Instructions</h3>
+          <p className="w-148 h-auto mx-auto mb-4 rounded-lg flex flex-row justify-center text-center">{selectedDrink.strInstructions}</p>
+          <h3 className="mt-4 text-xl font-semibold flex flex-row justify-center">Ingredients</h3>
+          <ul className="list-disc list-inside mt-2 flex flex-row justify-center">
             {Array.from({ length: 15 }).map((_, i) => {
               const ing = selectedDrink[`strIngredient${i + 1}`];
               const measure = selectedDrink[`strMeasure${i + 1}`];
               return (
                 ing ? (
-                  <li key={i} className="text-sm">
+                  <li key={i} className="text-sm flex flex-row justify-center">
                     {measure?.trim()} {ing}
                   </li>
                 ) : null
